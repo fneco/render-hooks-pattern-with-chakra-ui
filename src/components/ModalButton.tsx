@@ -46,14 +46,12 @@ function Modal({ header, ...rest }: ModalProps) {
 }
 
 // render hooks パターンの実装
-function useModal() {
+function useModal(modalProps: Omit<ModalProps, "isOpen" | "onClose">) {
   const { isOpen, onOpen, onClose } = useDisclosure()
 
-  const ModalFromHook = (props: Omit<ModalProps, "isOpen" | "onClose">) => {
-    return <Modal {...{ isOpen, onClose }} {...props} />
-  }
+  const modalFromHook = <Modal {...{ isOpen, onClose, ...modalProps }} />
 
-  return { ModalFromHook, onOpen }
+  return { modalFromHook, onOpen }
 }
 
 export function ModalButton() {
@@ -64,11 +62,11 @@ export function ModalButton() {
 
   console.log("render")
 
-  const { ModalFromHook, onOpen } = useModal()
+  const { modalFromHook, onOpen } = useModal({ header: "ヘッダー" })
   return (
     <>
       <Button onClick={onOpen}>Open Modal</Button>
-      <ModalFromHook header={"ヘッダー"} />
+      {modalFromHook}
     </>
   )
 }
