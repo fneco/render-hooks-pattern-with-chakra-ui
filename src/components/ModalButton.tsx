@@ -9,7 +9,7 @@ import {
   ModalOverlay,
   ModalProps as ChakraModalProps,
 } from "@chakra-ui/react"
-import { memo, useEffect } from "react"
+import { useEffect } from "react"
 import { useDisclosure, useRenderForcibly, useInterval } from "../hooks"
 
 interface ModalProps extends Omit<ChakraModalProps, "children"> {
@@ -49,9 +49,9 @@ function Modal({ header, ...rest }: ModalProps) {
 function useModal() {
   const { isOpen, onOpen, onClose } = useDisclosure()
 
-  const ModalFromHook = memo((props: Omit<ModalProps, "isOpen" | "onClose">) => {
+  const ModalFromHook = (props: Omit<ModalProps, "isOpen" | "onClose">) => {
     return <Modal {...{ isOpen, onClose }} {...props} />
-  })
+  }
 
   return { ModalFromHook, onOpen }
 }
