@@ -11,6 +11,7 @@ specifiers:
   '@types/react-dom': ^18.0.0
   framer-motion: ^6.3.0
   next: latest
+  prettier: 2.8.3
   react: ^18.2.0
   react-dom: ^18.2.0
   typescript: ^4.7.2
@@ -30,6 +31,7 @@ devDependencies:
   '@types/node': 18.13.0
   '@types/react': 18.0.27
   '@types/react-dom': 18.0.10
+  prettier: 2.8.3
   typescript: 4.9.5
 
 packages:
@@ -1898,6 +1900,12 @@ packages:
       picocolors: 1.0.0
       source-map-js: 1.0.2
     dev: false
+
+  /prettier/2.8.3:
+    resolution: {integrity: sha512-tJ/oJ4amDihPoufT5sM0Z1SKEuKay8LfVAMlbbhnnkvt6BUserZylqo2PN+p9KeljLr0OHa2rXHU1T8reeoTrw==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
+    dev: true
 
   /prop-types/15.8.1:
     resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==}
